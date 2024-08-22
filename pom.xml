@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.charlie.hspliving</groupId>
+    <artifactId>hspliving</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>hspliving</name>
+    <description>家具生活-集成聚合微服务模块</description>
+    <packaging>pom</packaging>
+
+    <!--解决java: -source 1.5 中不支持 diamond 运算符-->
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <!--指定聚合管理的模块/微服务模块-->
+    <modules>
+        <module>hspliving-commodity</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>hspliving-common</module>
+    </modules>
+
+</project>

@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.56.100:3306/hspliving_commodity?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+# 配置mybatis-plus
+mybatis-plus:
+  config-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto # 配置主键自增长
+  configuration:
+    # 配置输出底层的sql,方便观察sql执行情况
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
