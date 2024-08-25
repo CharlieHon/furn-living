@@ -1,6 +1,8 @@
 package com.charlie.hspliving.commodity.service.impl;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -26,4 +28,21 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         return new PageUtils(page);
     }
 
+    /**
+     * 返回所有分类及其子分类（带有层级关系，即树形）
+     * 这里会使用到java8的 流式计算 + 递归操作
+     */
+    @Override
+    public List<CategoryEntity> listTree() {
+        // 1. 查出所有的分类数据
+        List<CategoryEntity> entities = baseMapper.selectList(null);
+        // 2. 组装成层级树形结构（使用到java8的stream api + 递归擦欧总）
+        // 2.1 对entities过滤filter，返回1级分类
+        // 2.2 进行map映射操作，给每个分类设置对应的子分类（递归）
+        // 2.3 进行排序sorted操作
+        // 2.4 将处理好的数据进行收集/转换到集合
+
+        // 3. 返回带有层级关系的树形结构数据
+        return null;
+    }
 }

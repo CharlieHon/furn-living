@@ -1,6 +1,7 @@
 package com.charlie.hspliving.commodity.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -32,6 +33,15 @@ public class CategoryController {
     // 装配Service
     @Autowired
     private CategoryService categoryService;
+
+    /**
+     * 编写一个方法/接口，查出所有分类及其子类，并要求带有其层级关系
+     */
+    @RequestMapping("/list/tree")
+    public R listTree() {
+        List<CategoryEntity> entities = categoryService.listTree();
+        return R.ok().put("data", entities);
+    }
 
     /**
      * 列表
