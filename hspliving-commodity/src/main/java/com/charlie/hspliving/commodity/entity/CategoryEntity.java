@@ -1,10 +1,13 @@
 package com.charlie.hspliving.commodity.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -56,5 +59,14 @@ public class CategoryEntity implements Serializable {
 	 * 商品数量
 	 */
 	private Integer proCount;
+
+	/**
+	 * 增加一个属性，childrenCategories
+	 * 1. 表示某个分类的子分类集合
+	 * 2. 没有对应表 commodity_category 的字段
+	 * 3. @TableFiled(exit = false) 表示属性不对应表的字段
+	 */
+	@TableField(exist = false)
+	private List<CategoryEntity> childrenCategories;
 
 }
